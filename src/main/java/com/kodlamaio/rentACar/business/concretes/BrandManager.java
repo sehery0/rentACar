@@ -33,7 +33,6 @@ public class BrandManager implements BrandService {
 	
 
 	public BrandManager(BrandRepository brandRepository, ModelMapperService modelMapperService) {
-		super();
 		this.brandRepository = brandRepository;
 		this.modelMapperService = modelMapperService;
 	}
@@ -87,6 +86,6 @@ public class BrandManager implements BrandService {
 						.map(brand, GetAllBrandResponse.class)).collect(Collectors.toList());
 		return new SuccessDataResult<List<GetAllBrandResponse>>(response);
 	}
-	
+	 
 
 }
