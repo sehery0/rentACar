@@ -2,9 +2,10 @@ package com.kodlamaio.rentACar.business.abstracts;
 
 import java.util.List;
 
-import com.kodlamaio.rentACar.business.request.maintenance.CreateMaintenanceRequest;
-import com.kodlamaio.rentACar.business.request.maintenance.DeleteMaintenanceRequest;
-import com.kodlamaio.rentACar.business.request.maintenance.UpdateMaintenanceRequest;
+import com.kodlamaio.rentACar.business.request.maintenances.CreateMaintenanceRequest;
+import com.kodlamaio.rentACar.business.request.maintenances.DeleteMaintenanceRequest;
+import com.kodlamaio.rentACar.business.request.maintenances.UpdateMaintenanceRequest;
+import com.kodlamaio.rentACar.business.response.maintenances.GetAllMaintenanceResponse;
 import com.kodlamaio.rentACar.business.response.maintenances.GetMaintenanceResponse;
 import com.kodlamaio.rentACar.core.utilities.results.DataResult;
 import com.kodlamaio.rentACar.core.utilities.results.Result;
@@ -17,8 +18,8 @@ public interface MaintenanceService {
 
 	Result update(UpdateMaintenanceRequest updateMaintenanceRequest);
 
-	DataResult<Maintenance> getById(GetMaintenanceResponse readMaintenanceResponse);
+	DataResult<GetMaintenanceResponse> getById(int id);
 
-	DataResult<List<Maintenance>> getAll(GetMaintenanceResponse readMaintenanceResponse);
+	DataResult<List<GetAllMaintenanceResponse>> getAll();
 
 }

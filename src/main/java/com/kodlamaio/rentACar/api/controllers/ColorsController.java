@@ -38,7 +38,7 @@ public class ColorsController {
 		return this.colorService.update(updateColorRequest);
 	}
 	
-	@DeleteMapping("/delete")
+	@PostMapping("/delete")
 	public Result delete(@RequestBody DeleteColorRequest deleteColorRequest) {
 		return this.colorService.delete(deleteColorRequest);
 	}

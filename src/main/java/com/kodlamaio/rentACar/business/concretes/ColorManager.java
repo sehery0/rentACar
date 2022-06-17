@@ -2,7 +2,7 @@ package com.kodlamaio.rentACar.business.concretes;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,24 +11,23 @@ import com.kodlamaio.rentACar.business.abstracts.ColorService;
 import com.kodlamaio.rentACar.business.request.colors.CreateColorRequest;
 import com.kodlamaio.rentACar.business.request.colors.DeleteColorRequest;
 import com.kodlamaio.rentACar.business.request.colors.UpdateColorRequest;
-import com.kodlamaio.rentACar.business.response.cars.GetAllCarResponse;
 import com.kodlamaio.rentACar.business.response.colors.GetAllColorResponse;
 import com.kodlamaio.rentACar.business.response.colors.GetColorResponse;
+import com.kodlamaio.rentACar.core.utilities.mapping.ModelMapperService;
 import com.kodlamaio.rentACar.core.utilities.results.DataResult;
 import com.kodlamaio.rentACar.core.utilities.results.Result;
 import com.kodlamaio.rentACar.core.utilities.results.SuccessDataResult;
 import com.kodlamaio.rentACar.core.utilities.results.SuccessResult;
-import com.kodlamaio.rentACar.core.utilities.results.mapping.ModelMapperService;
 import com.kodlamaio.rentACar.dataAccess.abstracts.ColorRepository;
 import com.kodlamaio.rentACar.entities.concretes.Color;
 
-import net.bytebuddy.asm.Advice.This;
 
 @Service
 public class ColorManager implements ColorService {
 
 	@Autowired
 	private ColorRepository colorRepository;
+	@Autowired
 	private ModelMapperService modelMapperService;
 
 	@Override

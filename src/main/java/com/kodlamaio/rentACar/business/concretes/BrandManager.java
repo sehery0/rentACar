@@ -13,11 +13,11 @@ import com.kodlamaio.rentACar.business.request.brands.UpdateBrandRequest;
 import com.kodlamaio.rentACar.business.response.brands.GetAllBrandResponse;
 import com.kodlamaio.rentACar.business.response.brands.GetBrandResponse;
 import com.kodlamaio.rentACar.core.utilities.exceptions.BusinessException;
+import com.kodlamaio.rentACar.core.utilities.mapping.ModelMapperService;
 import com.kodlamaio.rentACar.core.utilities.results.DataResult;
 import com.kodlamaio.rentACar.core.utilities.results.Result;
 import com.kodlamaio.rentACar.core.utilities.results.SuccessDataResult;
 import com.kodlamaio.rentACar.core.utilities.results.SuccessResult;
-import com.kodlamaio.rentACar.core.utilities.results.mapping.ModelMapperService;
 import com.kodlamaio.rentACar.dataAccess.abstracts.BrandRepository;
 import com.kodlamaio.rentACar.entities.concretes.Brand;
 
@@ -28,6 +28,7 @@ public class BrandManager implements BrandService {
 	
 	@Autowired
 	private BrandRepository brandRepository;
+	@Autowired
 	private ModelMapperService modelMapperService;
 	
 	
@@ -57,7 +58,7 @@ public class BrandManager implements BrandService {
 	public Result update(UpdateBrandRequest updateBrandRequest) {
 		Brand brand = this.modelMapperService.forRequest().map(updateBrandRequest, Brand.class);
 		this.brandRepository.save(brand);
-		return new SuccessResult("BRAND.DELETED");
+		return new SuccessResult("BRAND.UPDATED");
 
 	}
 
@@ -65,7 +66,7 @@ public class BrandManager implements BrandService {
 	public Result delete(DeleteBrandRequest deleteBrandRequest) {
 		Brand brand = this.modelMapperService.forRequest().map(deleteBrandRequest, Brand.class);
 		this.brandRepository.delete(brand);
-		return new SuccessResult("BRAND.UPDATED");
+		return new SuccessResult("BRAND.DELETED");
 
 	}
 

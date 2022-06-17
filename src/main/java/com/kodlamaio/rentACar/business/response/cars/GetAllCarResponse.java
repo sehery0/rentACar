@@ -13,5 +13,6 @@ public class GetAllCarResponse {
 	private double dailyPrice;
 	private int brandId;
 	private int colorId;
+	private int carScore;
 
 }

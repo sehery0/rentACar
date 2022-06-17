@@ -17,7 +17,7 @@ public interface CarService {
 
 	Result update(UpdateCarRequest updateCarRequest);
 
-	Result delete(DeleteCarRequest deleteCarRequest);
+	Result delete(int id);
 	
 	DataResult<List<GetAllCarResponse>> getAll();
 	

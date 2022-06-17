@@ -12,6 +12,9 @@ public class UpdateCarRequest {
 	private int id;
 	private String description;
 	private double dailyPrice;
-	private int brandId;
-	private int colorId;
+	private String licensePlate;
+	private int kilometer;
+	private int brand_id;
+	private int color_id;
+	private int carScore;
 }
