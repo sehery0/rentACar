@@ -61,8 +61,8 @@ public class Rental {
     @JoinColumn(name = "return_city_id", referencedColumnName = "id")
     private City returnCityId;
 	
-	
-	
+    @OneToMany(mappedBy ="rental")
+	List<Invoice> invoices;
 	
 
 }
