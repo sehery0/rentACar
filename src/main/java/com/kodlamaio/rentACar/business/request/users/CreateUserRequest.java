@@ -12,24 +12,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateUserRequest {
-	/*@NotBlank(message = "First Name is mandatory")
-	@Size(min = 2)*/
+	@NotBlank(message = "First Name is mandatory")
+	@Size(min = 2)
 	private String firstName;
 
-	//@Size(min = 2)
-	//@Pattern(regexp = "(^[a-zA-Z]{2,50}$)", message = "Last Name must be of characters")
+	@Size(min = 2)
+	@Pattern(regexp = "(^[a-zA-Z]{2,50}$)", message = "Last Name must be of characters")
 	private String lastName;
 
-	/*@NotBlank(message = "Identity Number is mandatory")
+	@NotBlank(message = "Identity Number is mandatory")
 	@Pattern(regexp = "(^[0-9]{11}$)", message = "Identity Number must be 11 characters")
-	@Pattern(regexp = "(^\\d*[02468]$)", message = "Identity Number must be of digits and the last character must be an even number")*/
+	@Pattern(regexp = "(^\\d*[02468]$)", message = "Identity Number must be of digits and the last character must be an even number")
 	private String identityNumber;
 
-	//@Email(message = "Email should be valid")
+	@Email(message = "Email should be valid")
 	private String email;
 
 	private String password;

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kodlamaio.rentACar.business.abstracts.RentalService;
 import com.kodlamaio.rentACar.business.request.rentals.CreateRentalRequest;
-import com.kodlamaio.rentACar.business.request.rentals.DeleteRentalRequest;
 import com.kodlamaio.rentACar.business.request.rentals.UpdateRentalRequest;
 import com.kodlamaio.rentACar.business.response.rentals.GetAllRentalResponse;
 import com.kodlamaio.rentACar.business.response.rentals.GetRentalResponse;
@@ -39,9 +38,9 @@ public class RentalsController {
 		return this.rentalService.update(updateRentalRequest);
 	}
 
-	@DeleteMapping("/delete")
-	public Result delete(@RequestBody DeleteRentalRequest deleteRentalRequest) {
-		return this.rentalService.delete(deleteRentalRequest);
+	@DeleteMapping("/{id}")
+	public Result delete(@RequestBody int id) {
+		return this.rentalService.delete(id);
 
 	}
 

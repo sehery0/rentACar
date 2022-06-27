@@ -3,7 +3,6 @@ package com.kodlamaio.rentACar.business.abstracts;
 import java.util.List;
 
 import com.kodlamaio.rentACar.business.request.rentals.CreateRentalRequest;
-import com.kodlamaio.rentACar.business.request.rentals.DeleteRentalRequest;
 import com.kodlamaio.rentACar.business.request.rentals.UpdateRentalRequest;
 import com.kodlamaio.rentACar.business.response.rentals.GetAllRentalResponse;
 import com.kodlamaio.rentACar.business.response.rentals.GetRentalResponse;
@@ -16,7 +15,7 @@ public interface RentalService {
 
 	Result update(UpdateRentalRequest updateRentalRequest);
 
-	Result delete(DeleteRentalRequest deleteRentalRequest);
+	Result delete(int id);
 
 	DataResult<GetRentalResponse> getById(int id);
 

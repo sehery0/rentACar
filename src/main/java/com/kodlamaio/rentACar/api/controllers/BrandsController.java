@@ -3,6 +3,7 @@ package com.kodlamaio.rentACar.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,9 +38,9 @@ public class BrandsController {
 		return this.brandService.add(createBrandRequest);
 	}
 
-	@PostMapping("/delete")
-	public Result delete(@RequestBody DeleteBrandRequest deleteBrandRequest) {
-		return this.brandService.delete(deleteBrandRequest);
+	@DeleteMapping("/{id}")
+	public Result delete(@RequestBody int id) {
+		return this.brandService.deleteById(id);
 	}
 
 	@PostMapping("/update")
@@ -49,7 +50,7 @@ public class BrandsController {
 	
 	@GetMapping("/getById")
 	public DataResult<GetBrandResponse> getById(@RequestParam int id) {
-		return this.brandService.getById(id);
+		return this.brandService.getBrandById(id);
 	}
 
 	@GetMapping("/getAll")

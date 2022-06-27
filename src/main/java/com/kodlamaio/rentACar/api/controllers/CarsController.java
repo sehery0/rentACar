@@ -24,9 +24,11 @@ import com.kodlamaio.rentACar.core.utilities.results.Result;
 @RestController
 @RequestMapping("/api/cars")
 public class CarsController {
-
-	@Autowired
 	private CarService carService;
+
+	public CarsController(CarService carService) {
+		this.carService = carService;
+	}
 
 	@PostMapping("/add")
 	public Result add(@RequestBody CreateCarRequest createCarRequest) {
@@ -44,8 +46,8 @@ public class CarsController {
 	}
 	
 	@GetMapping("/getById")
-	public DataResult<GetCarResponse> getById(@RequestParam int id) {
-		return this.carService.getById(id);
+	public DataResult<GetCarResponse> findById(@RequestParam int id) {
+		return this.carService.findById(id);
 		
 	}
 	

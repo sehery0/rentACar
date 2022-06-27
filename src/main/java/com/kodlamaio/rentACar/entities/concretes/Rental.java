@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,8 +34,8 @@ public class Rental {
 	@Column(name = "pickUpDate")
 	private LocalDate pickUpDate;
 
-	@Column(name = "returnedDate")
-	private LocalDate returnedDate;
+	@Column(name = "returnDate")
+	private LocalDate returnDate;
 
 	@Column(name = "totalDays")
 	private int totalDays;
@@ -53,14 +54,15 @@ public class Rental {
 	private Car car;
 	
 	@ManyToOne
-    @JoinColumn(name = "pick_up_city", referencedColumnName = "id")
-    private City pickUpCity;
+    @JoinColumn(name = "pick_up_city_id", referencedColumnName = "id")
+    private City pickUpCityId;
 
     @ManyToOne
-    @JoinColumn(name = "return_city", referencedColumnName = "id")
-    private City returnCity;
+    @JoinColumn(name = "return_city_id", referencedColumnName = "id")
+    private City returnCityId;
 	
-	@OneToMany(mappedBy = "rental")
-	private List<AdditionalService> addtionalServices;
+	
+	
+	
 
 }

@@ -4,9 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.kodlamaio.rentACar.entities.concretes.Brand;
 
-//JpaRepository: Repository Pattern
-public interface BrandRepository extends JpaRepository<Brand, Integer> {
-	Brand findById(int id);
+public interface BrandRepository extends JpaRepository<Brand, Integer> { //Integer default değeri null'dır.
 	Brand findByName(String name);
+	Brand findById(int id);
 
 }

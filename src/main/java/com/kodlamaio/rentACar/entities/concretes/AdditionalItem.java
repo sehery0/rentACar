@@ -18,11 +18,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "additional_service_items")
-public class AdditionalServiceItem {
+@Table(name = "additional_items")
+public class AdditionalItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name ="id")
 	private int id;
 	
 	@Column(name = "name")
@@ -31,7 +31,7 @@ public class AdditionalServiceItem {
 	@Column(name = "price")
 	private double price;
 	
-	@OneToMany(mappedBy = "additionalServiceItem")
-	private List<AdditionalService> additionalServices;
-
+	@OneToMany(mappedBy = "additionalItem")
+	List<Additional> additionalServices;
+	
 }

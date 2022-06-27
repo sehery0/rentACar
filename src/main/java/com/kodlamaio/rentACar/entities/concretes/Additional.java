@@ -1,5 +1,8 @@
 package com.kodlamaio.rentACar.entities.concretes;
 
+import java.time.LocalDate;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,24 +16,35 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor 
 @Entity
-@Table(name = "additional_services")
-public class AdditionalService {
+@Table(name = "additionals")
+public class Additional { 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="id")
+	@Column(name = "id")
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name = "additional_service_item_id")
-	private AdditionalServiceItem additionalServiceItem;
+	@Column(name ="total_days")
+	private int totalDays;
 	
+	@Column(name = "total_price")
+	private double totalPrice;
 	
 	@ManyToOne
-	@JoinColumn(name = "rental_id")
+	@JoinColumn(name="rental_id")
 	private Rental rental;
-
+	
+	@Column(name="pickup_date")
+	private LocalDate pickupDate;
+	
+	@Column(name="return_date")
+	private LocalDate returnDate;
+	
+	@ManyToOne
+	@JoinColumn(name = "additional_item_id")
+	private AdditionalItem additionalItem;
 }

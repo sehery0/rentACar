@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","cars"})
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "cars")
 public class Car {
 
-	@Id()
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
@@ -44,6 +43,7 @@ public class Car {
 	@Column(name = "state")
 	private int state;
 	
+	//?
 	@Column(name = "carScore")
 	private int carScore;
 

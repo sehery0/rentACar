@@ -25,8 +25,13 @@ import com.kodlamaio.rentACar.entities.concretes.Color;
 @RequestMapping("/api/colors")
 public class ColorsController {
 
-	@Autowired
+	
 	private ColorService colorService;
+	
+
+	public ColorsController(ColorService colorService) {
+		this.colorService = colorService;
+	}
 
 	@PostMapping("/add")
 	public void add(@RequestBody CreateColorRequest createColorRequest) {
@@ -38,14 +43,14 @@ public class ColorsController {
 		return this.colorService.update(updateColorRequest);
 	}
 	
-	@PostMapping("/delete")
-	public Result delete(@RequestBody DeleteColorRequest deleteColorRequest) {
-		return this.colorService.delete(deleteColorRequest);
+	@PostMapping("/{id}")
+	public Result delete(@RequestBody int id) {
+		return this.colorService.delete(id);
 	}
 	
 	@GetMapping("/getById")
-	public DataResult<GetColorResponse> getById(@RequestParam int id){
-		return this.colorService.getById(id);
+	public DataResult<GetColorResponse> findById(@RequestParam int id){
+		return this.colorService.findById(id);
 		
 	}
 	@GetMapping("/getAll")
