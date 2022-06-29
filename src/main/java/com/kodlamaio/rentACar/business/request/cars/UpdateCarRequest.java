@@ -16,5 +16,5 @@ public class UpdateCarRequest {
 	private int kilometer;
 	private int brand_id;
 	private int color_id;
-	private int carScore;
+	private int minFindexScore;;
 }

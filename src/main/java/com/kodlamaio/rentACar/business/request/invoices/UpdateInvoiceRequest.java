@@ -1,5 +1,7 @@
 package com.kodlamaio.rentACar.business.request.invoices;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateInvoiceRequest {
-	private int invoiceNumber;
+	private LocalDate invoicedDate;
 	private int rentalId;
 
 }

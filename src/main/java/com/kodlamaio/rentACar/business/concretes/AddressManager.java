@@ -3,6 +3,8 @@ package com.kodlamaio.rentACar.business.concretes;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
 import com.kodlamaio.rentACar.business.abstracts.AddressService;
 import com.kodlamaio.rentACar.business.request.addresses.CreateAddressRequest;
 import com.kodlamaio.rentACar.business.request.addresses.UpdateAddressRequest;
@@ -16,6 +18,7 @@ import com.kodlamaio.rentACar.core.utilities.results.SuccessResult;
 import com.kodlamaio.rentACar.dataAccess.abstracts.AddressRepository;
 import com.kodlamaio.rentACar.entities.concretes.Address;
 
+@Service
 public class AddressManager implements AddressService{
 	
 	private AddressRepository addressRepository;

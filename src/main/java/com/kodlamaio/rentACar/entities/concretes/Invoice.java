@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -29,16 +29,10 @@ public class Invoice {
 	
 	
 	@Column(name ="invoice_number")
-	private int invoiceNumber;
+	private LocalDate invoicedDate;
 	
-	@Column(name="currently_date")
-	private LocalDate currentDate;
-	
-	@Column(name = "total_price")
-	private double totalPrice;
-	
-	@ManyToOne
-	@JoinColumn(name ="rental_id")
+	@OneToOne
+	@JoinColumn(name = "rental_id", unique = true)
 	private Rental rental;
 
 }

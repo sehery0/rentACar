@@ -8,14 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kodlamaio.rentACar.business.abstracts.AdditionalService;
 import com.kodlamaio.rentACar.business.request.additionals.CreateAdditionalRequest;
 import com.kodlamaio.rentACar.business.request.additionals.UpdateAdditionalRequest;
-import com.kodlamaio.rentACar.business.request.brands.DeleteBrandRequest;
-import com.kodlamaio.rentACar.business.response.additionals.GetAdditionalResponse;
 import com.kodlamaio.rentACar.business.response.additionals.GetAllAdditionalResponse;
 import com.kodlamaio.rentACar.core.utilities.results.DataResult;
 import com.kodlamaio.rentACar.core.utilities.results.Result;
@@ -27,32 +24,28 @@ public class AdditionalsController {
 
 	public AdditionalsController(AdditionalService additionalService) {
 		super();
-		this.additionalService= additionalService;
+		this.additionalService = additionalService;
 	}
-	
+
+	@GetMapping("/getallbyrentalid/{id}")
+	public DataResult<List<GetAllAdditionalResponse>> findAllByRentalId(@RequestBody int id) {
+		return additionalService.findAllByRentalId(id);
+
+	}
+
 	@PostMapping("/add")
-	public Result add(CreateAdditionalRequest createAdditionalRequest) {
-		return this.additionalService.add(createAdditionalRequest);
+	public Result add(@RequestBody CreateAdditionalRequest createAdditionalService) {
+		return this.additionalService.add(createAdditionalService);
 	}
-	
+
 	@PostMapping("/update")
-	public Result update(UpdateAdditionalRequest updateAdditionalRequest) {
-		return this.additionalService.update(updateAdditionalRequest);
+	public Result update(@RequestBody UpdateAdditionalRequest updateAdditionalServiceRequest) {
+		return this.additionalService.update(updateAdditionalServiceRequest);
 	}
-	
-	@DeleteMapping("/{id}")
-	public Result delete(@RequestBody int id) {
+
+	@DeleteMapping("{id}")
+	public Result update(@PathVariable int id) {
 		return this.additionalService.delete(id);
-	}
-	
-	@GetMapping("/getById")
-	public DataResult<GetAdditionalResponse> getById(@RequestParam int id) {
-		return additionalService.getById(id);
-	}
-	
-	@GetMapping("/getAll")
-	public DataResult<List<GetAllAdditionalResponse>> getAll() {
-		return this.additionalService.getAll();
 	}
 
 }

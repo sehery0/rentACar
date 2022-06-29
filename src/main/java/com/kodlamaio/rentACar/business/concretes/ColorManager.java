@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.kodlamaio.rentACar.business.abstracts.ColorService;
 import com.kodlamaio.rentACar.business.request.colors.CreateColorRequest;
-import com.kodlamaio.rentACar.business.request.colors.DeleteColorRequest;
 import com.kodlamaio.rentACar.business.request.colors.UpdateColorRequest;
 import com.kodlamaio.rentACar.business.response.colors.GetAllColorResponse;
 import com.kodlamaio.rentACar.business.response.colors.GetColorResponse;
